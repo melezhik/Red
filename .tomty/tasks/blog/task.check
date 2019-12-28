@@ -11,4 +11,24 @@ Post.^load($post.id).defined=False
 Post.^load($post.id)=== Nil.new is True
 $p.active-posts.map(*.id)=(2)
 $p.posts.head.created=DateTime
-$p.posts.map(*.tags).head.perl=Set.new("bla","ble")
+
+between: {'begin multi try test'} {'end multi try test'}
+  regexp: '$p.posts.map(*.tags).head.perl=Set.new("' (\S+) '","' (\S+) '")'
+end:
+
+generator: <<CODE
+!perl6
+if captures() {
+  my $status = True;
+  for captures()<> -> $c {
+    unless $c[0] eq 'bla' && $c[1] eq 'ble' {
+      $status = False;
+      last;
+    }
+  }
+
+  say "assert: $status 'p.posts.map(*.tags).head.perl should be bla,ble'";
+
+}
+
+CODE

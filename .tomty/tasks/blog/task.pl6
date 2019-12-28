@@ -68,5 +68,9 @@ say '$p.active-posts.map(*.id)=',$p.active-posts.map(*.id); # (2);
 
 say '$p.posts.head.created=',$p.posts.head.created.^name; # DateTime;
 
-say '$p.posts.map(*.tags).head.perl=',$p.posts.map(*.tags).head.perl; # set <bla ble>;
+say "begin multi try test";
+for (1 ... 50) {
+  say '$p.posts.map(*.tags).head.perl=',$p.posts.map(*.tags).head.perl; # set <bla ble>;
+}
+say "end multi try test";
 
