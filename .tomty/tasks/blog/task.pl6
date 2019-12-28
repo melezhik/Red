@@ -1,5 +1,4 @@
 use v6;
-use Test;
 
 use Red;
 
