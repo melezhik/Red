@@ -1,0 +1,14 @@
+$p.WHAT=Person
+$post.WHAT=Post
+$post.title=Red's commit
+$post.body=Merge branch 'master' of https://github.com/FCO/Red
+$post2.title=Another commit
+$post2.body=Blablabla
+$p.name=Fernando
+$p.id.defined=True
+$p.id=1
+Post.^load($post.id).defined=False
+Post.^load($post.id)=== Nil.new is True
+$p.active-posts.map(*.id)=(2)
+$p.posts.head.created=DateTime
+$p.posts.map(*.tags).head.perl=Set.new("bla","ble")
