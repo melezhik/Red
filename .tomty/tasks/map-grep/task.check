@@ -1,0 +1,14 @@
+begin:
+SQL : SELECT
+   CASE 
+      WHEN (mmm.b <> 0 AND mmm.b IS NOT NULL) THEN mmm.a
+regexp: ^^ \s* $$
+   END
+    as "data_1"
+FROM
+   mmm
+WHERE
+   (mmm.b == 0 OR mmm.b IS NULL)
+()
+BIND: []
+end:
